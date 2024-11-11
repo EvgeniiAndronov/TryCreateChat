@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+{{ range .payload }}
+    <a href="/article/view/{{ .Id }}">
+        <h2>{{ .Title }}</h2>
+    </a>
+    <p>
+        <div>{{ .Body }}</div>
+        <p>{{ .Author }} - {{ .Time }}</p>
+    </p>
+{{ end }}
+</body>
+</html>
