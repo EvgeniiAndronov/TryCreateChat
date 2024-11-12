@@ -14,3 +14,11 @@ type Post struct {
 	Author string `json:"author"`
 	Time   string `json:"time"`
 }
+
+type Message struct {
+	OwnerId     string `json:"ownerId"`
+	ForWhoId    string `json:"forWhoId"`
+	TextMessage string `json:"textMessage"`
+	TimeSand    string `json:"timeSand"`
+	JwtToken    string `json:"jwtToken"`
+}

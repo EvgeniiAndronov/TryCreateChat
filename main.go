@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ChatTryCreate/messages"
 	"ChatTryCreate/models"
 	"ChatTryCreate/posts"
 	"github.com/gin-gonic/gin"
@@ -17,14 +18,15 @@ func main() {
 		panic("failed to connect database")
 	}
 
-	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.User{}, &models.Message{})
 
 	router = gin.Default()
 	router.LoadHTMLGlob("templates/*")
 
 	router.GET("/posts", posts.ShowPostsOnPage)
 	router.GET("/postjson", posts.ShowPostsJson)
+	router.POST("/message", messages.MessageRecive)
+	router.GET("/showMessage", messages.ShowMessages)
 
 	router.Run(":8080")
-
 }
