@@ -1,10 +1,12 @@
 package models
 
+import "gorm.io/gorm"
+
 type User struct {
-	Id           int32
-	Email        string
-	PasswordHash string
-	LastUpdate   int64
+	gorm.Model
+	Id           int32  `json:"id"`
+	Email        string `json:"email"`
+	PasswordHash string `json:"password_hash"`
 }
 
 type Post struct {
@@ -21,4 +23,15 @@ type Message struct {
 	TextMessage string `json:"textMessage"`
 	TimeSand    string `json:"timeSand"`
 	JwtToken    string `json:"jwtToken"`
+}
+
+//
+//type UserInDB struct {
+//	Email    string `json:"email"`
+//	PassHash string `json:"password_hash"`
+//}
+
+type ResultToUser struct {
+	Success bool   `json:"success"`
+	Type    string `json:"type"`
 }

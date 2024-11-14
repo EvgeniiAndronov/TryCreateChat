@@ -4,6 +4,7 @@ import (
 	"ChatTryCreate/messages"
 	"ChatTryCreate/models"
 	"ChatTryCreate/posts"
+	"ChatTryCreate/regauth"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -27,6 +28,8 @@ func main() {
 	router.GET("/postjson", posts.ShowPostsJson)
 	router.POST("/message", messages.MessageRecive)
 	router.GET("/showMessage", messages.ShowMessages)
+	router.POST("/reg", regauth.RegistrationUser)
+	router.GET("Reg_succ", regauth.SuccesRegistration)
 
 	router.Run(":8080")
 }
